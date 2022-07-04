@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>hyakuninissyu_fudakuri</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="fudakuri.css" />
+</head>
+
+<body>
+  <h1>【百人一首 札繰り】</h1>
+  <div id="menu">
+    <br>
+    <input type="button" value="設定" id="setting_btn" class="btn_setting">
+    <input type="button" value="開始" id="start_btn" class="btn_start">
+    <input type="button" value="強制終了" id="stop_btn" class="btn_stop" disabled=true>
+    <div id="setting">
+      <p class="set_title0">＜設定画面＞</p>
+      <p class="set_title1">札の向き</p>
+      <p class="set_title2">
+        <input type="radio" name="muki" class="btn_radio" value="0" checked>&nbsp;正方向  
+      </p>
+      <p class="set_title2">
+        <input type="radio" name="muki" class="btn_radio" value="1">&nbsp;上下逆
+      </p>
+      <p class="set_title2">
+        <input type="radio" name="muki" class="btn_radio" value="2">&nbsp;ランダム
+      </p>
+      <p class="set_title1">札の枚数</p>
+      <p class="set_title2">
+        <input type="radio" name="maisuu" class="btn_radio" value="0" checked>&nbsp;１００首
+      </p>
+      <p class="set_title2">
+        <input type="radio" name="maisuu" class="btn_radio" value="0">&nbsp;任意
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="1" checked>&nbsp;む・す・め・ふ・さ・ほ・せ
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="2" checked>&nbsp;う・つ・し・も・ゆ
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="3" checked>&nbsp;い・ち・ひ・き
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="4" checked>&nbsp;は・や・よ・か
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="5" checked>&nbsp;み
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="61" checked>&nbsp;た
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="62" checked>&nbsp;こ
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="71" checked>&nbsp;お
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="72" checked>&nbsp;わ
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="8" checked>&nbsp;な
+      </p>
+      <p class="set_title3">
+        <input type="checkbox" name="choice" class="btn_check" value="16" checked>&nbsp;あ
+      </p>
+      <input type="button" value="閉じる" id="close_menu_btn" class="btn_close">
+    </div>
+    <br><br>
+  </div>
+  <div id="main">
+    <img id="fuda" src="fuda\0_0_0_始.png"><br>
+    <p id="counter">0/100</p>
+    <input type="button" value="１つ前へ" id="before_btn" class="btn_before" disabled=true>
+    <input type="button" value="次へ" id="after_btn" class="btn_after" disabled=true>
+    <p id="before">　</p>
+    <img id="back" src="background1.jpg"><br>
+  </div>
+  <div id="time">
+    <p id="timer"></p>
+  </div>
+  <script type="text/javascript" src="fudakuri.js"></script>
+</body>
+
+</html>
