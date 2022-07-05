@@ -1,7 +1,7 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-const fuda = [
+const fuda_org = [[
   "0_0_0_始.png",
   "1_1_0_む.png",
   "2_1_0_す.png",
@@ -104,13 +104,22 @@ const fuda = [
   "99_16_0_あひ.png",
   "100_16_0_あけ.png",
   "101_0_0_終.png"
-];
-const max = 100;
+], []];
+
+for (let i = 0; i <= 101; i++) {
+  fuda_org[1][i] = true;
+}
+
+const maisuu = [7, 10, 12, 16, 5, 12, 14, 8, 16];
+let max = 0;
 let counter = 0;
 let startTime = 0;
+let fuda = [[], []];
+let lastcheck = 0;
+let islastcheck = false;
 
 function change_counter(count) {
-  document.getElementById("counter").textContent = `${count}/100`;
+  document.getElementById("counter").textContent = `${count}/${max}`;
 }
 
 function time_stamp(time_ms) {
@@ -121,7 +130,7 @@ function time_stamp(time_ms) {
 }
 
 function print_kimariji(count) {
-  let str = fuda[count];
+  let str = fuda[0][count];
   str = str.substring(0, str.length - 4);
   const fname = str.split('_');
   const kimariji = fname[3];
@@ -134,6 +143,33 @@ function setting() {
   document.getElementById("setting").style.display = "block";
 }
 
+function radiocheck() {
+  for (const i of document.getElementsByClassName("btn_check")) {
+    i.disabled = document.getElementsByClassName("btn_radio")[3].checked;
+  }
+}
+
+function checkbtn() {
+  let checknum = 0;
+  let last = 0;
+  for (let i = 0; i < document.getElementsByClassName("btn_check").length; i++) {
+    if (document.getElementsByClassName("btn_check")[i].checked) {
+      checknum++;
+      last = i;
+    }
+  }
+  if (checknum === 0) {
+    document.getElementsByClassName("btn_check")[lastcheck].checked = true;
+  } else {
+    if (checknum === 1) {
+      lastcheck = last;
+      islastcheck = true;
+    } else {
+      islastcheck = false;
+    }
+  }
+}
+
 function closemenu() {
   document.getElementById("start_btn").disabled = false;
   document.getElementById("setting_btn").disabled = false;
@@ -141,31 +177,114 @@ function closemenu() {
 }
 
 function start() {
+  if (document.getElementsByClassName("btn_radio")[4].checked) {
+    max = 0;
+    if (document.getElementsByClassName("btn_check")[0].checked) {
+      for (let i = 1; i <= 7; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[1].checked) {
+      for (let i = 8; i <= 17; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[2].checked) {
+      for (let i = 18; i <= 29; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[3].checked) {
+      for (let i = 30; i <= 45; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[4].checked) {
+      for (let i = 46; i <= 50; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[5].checked) {
+      for (let i = 51; i <= 62; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[6].checked) {
+      for (let i = 63; i <= 76; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[7].checked) {
+      for (let i = 77; i <= 84; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    if (document.getElementsByClassName("btn_check")[8].checked) {
+      for (let i = 85; i <= 100; i++) {
+        max++;
+        fuda[0][max] = fuda_org[0][i];
+        fuda[1][max] = fuda_org[1][i];
+      }
+    }
+    fuda[0][max + 1] = fuda_org[0][101];
+    fuda[1][max + 1] = fuda_org[1][101];
+  } else {
+    max = 100;
+    fuda = fuda_org;
+  }
   const randnum = [];
   for (let i = 1; i <= max; i++) {
     randnum[i] = Math.random();
+    if (document.getElementsByClassName("btn_radio")[1].checked) {
+      fuda[1][i] = false;
+    } else if (document.getElementsByClassName("btn_radio")[2].checked) {
+      if (randnum[i] < 0.5) {
+        fuda[1][i] = false;
+      } else {
+        fuda[1][i] = true;
+      }
+    } else {
+      fuda[1][i] = true;
+    }
   }
   for (let i = 1; i < max; i++) {
     for (let j = i + 1; j <= max; j++) {
       if (randnum[i] < randnum[j]) {
         let num = randnum[i];
-        let str = fuda[i];
+        let str = fuda[0][i];
         randnum[i] = randnum[j];
         randnum[j] = num;
-        fuda[i] = fuda[j];
-        fuda[j] = str;
+        fuda[0][i] = fuda[0][j];
+        fuda[0][j] = str;
       }
     }
   }
   document.getElementById("timer").textContent = "";
   document.getElementById("before").textContent = "　";
-  document.getElementById("fuda").src = `${fuda[1]}`;
+  document.getElementById("fuda").src = `${fuda[0][1]}`;
+  upsidedown(fuda[1][1]);
   document.getElementById("setting_btn").disabled = true;
   document.getElementById("start_btn").disabled = true;
   document.getElementById("stop_btn").disabled = false;
   document.getElementById("before_btn").disabled = false;
   document.getElementById("after_btn").disabled = false;
-  counter++;
+  counter = 1;
   change_counter(counter);
   startTime = new Date();
 }
@@ -173,7 +292,8 @@ function start() {
 function stop() {
   const finishTime = new Date();
   const totalTime = finishTime.getTime() - startTime.getTime();
-  document.getElementById("fuda").src = `${fuda[0]}`;
+  document.getElementById("fuda").src = `${fuda[0][0]}`;
+  upsidedown(fuda[1][0]);
   document.getElementById("setting_btn").disabled = false;
   document.getElementById("start_btn").disabled = false;
   document.getElementById("stop_btn").disabled = true;
@@ -184,10 +304,19 @@ function stop() {
   time_stamp(totalTime);
 }
 
+function upsidedown(bool) {
+  if (bool) {
+    document.getElementById("fuda").style.transform = "rotate(0deg)";
+  } else {
+    document.getElementById("fuda").style.transform = "rotate(180deg)";
+  }
+}
+
 function before() {
   if (counter > 1) {
     counter--;
-    document.getElementById("fuda").src = `${fuda[counter]}`;
+    document.getElementById("fuda").src = `${fuda[0][counter]}`;
+    upsidedown(fuda[1][counter]);
     change_counter(counter);
     if (counter === 1) {
       document.getElementById("before").textContent = "　";
@@ -203,7 +332,8 @@ function after() {
     const totalTime = finishTime.getTime() - startTime.getTime();
     print_kimariji(counter);
     counter++;
-    document.getElementById("fuda").src = `${fuda[counter]}`;
+    document.getElementById("fuda").src = `${fuda[0][counter]}`;
+    upsidedown(fuda[1][counter]);
     document.getElementById("setting_btn").disabled = false;
     document.getElementById("start_btn").disabled = false;
     document.getElementById("stop_btn").disabled = true;
@@ -215,20 +345,36 @@ function after() {
   } else {
     print_kimariji(counter);
     counter++;
-    document.getElementById("fuda").src = `${fuda[counter]}`;
+    document.getElementById("fuda").src = `${fuda[0][counter]}`;
+    upsidedown(fuda[1][counter]);
     change_counter(counter);
   }
 }
 
-let settingButton = document.getElementById("setting_btn");
-let closemenuButton = document.getElementById("close_menu_btn");
-let startButton = document.getElementById("start_btn");
-let stopButton = document.getElementById("stop_btn");
-let beforeButton = document.getElementById("before_btn");
-let afterButton = document.getElementById("after_btn");
+const settingButton = document.getElementById("setting_btn");
 settingButton.addEventListener('click', setting);
+
+const radioButton = document.getElementsByClassName("btn_radio");
+for (let i = 3; i <= 4; i++) {
+  radioButton[i].addEventListener('click', radiocheck);
+}
+
+const checkButton = document.getElementsByClassName("btn_check");
+for (let i = 0; i <= 8; i++) {
+  checkButton[i].addEventListener('click', checkbtn);
+}
+
+const closemenuButton = document.getElementById("close_menu_btn");
 closemenuButton.addEventListener('click', closemenu);
+
+const startButton = document.getElementById("start_btn");
 startButton.addEventListener('click', start);
+
+const stopButton = document.getElementById("stop_btn");
 stopButton.addEventListener('click', stop);
+
+const beforeButton = document.getElementById("before_btn");
 beforeButton.addEventListener('click', before);
+
+const afterButton = document.getElementById("after_btn");
 afterButton.addEventListener('click', after);
