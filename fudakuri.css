@@ -163,6 +163,7 @@ input.btn_stop:hover {
   margin-top: 30px;
   z-index: 1;
   height: 400px;
+  transform: rotate(0deg);
 }
 
 #back {
@@ -193,7 +194,7 @@ input.btn_stop:hover {
   position: absolute;
   left: 50px;
   top: 120px;
-  height: 720px;
+  height: 675px;
   width: 350px;
   background-color: rgb(204, 153, 0);
   text-align: left;
