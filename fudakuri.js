@@ -115,6 +115,8 @@ let max = 0;
 let counter = 0;
 let startTime = 0;
 let fuda = [[], []];
+fuda[0][0] = fuda_org[0][0];
+fuda[1][0] = fuda_org[1][0];
 let lastcheck = 0;
 let islastcheck = false;
 
@@ -177,6 +179,10 @@ function closemenu() {
 }
 
 function start() {
+  for (let i = 1; i <= 101; i++) {
+    fuda[0][i] = "";
+    fuda[1][i] = "";
+  }
   if (document.getElementsByClassName("btn_radio")[4].checked) {
     max = 0;
     if (document.getElementsByClassName("btn_check")[0].checked) {
@@ -378,3 +384,10 @@ beforeButton.addEventListener('click', before);
 
 const afterButton = document.getElementById("after_btn");
 afterButton.addEventListener('click', after);
+
+const fileopenButton = document.getElementById("fileopen_btn");
+fileopenButton.addEventListener('click', openpdf);
+
+function openpdf() {
+  window.open("プレゼン資料.pdf")
+}
