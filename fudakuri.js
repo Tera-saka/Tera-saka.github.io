@@ -184,6 +184,7 @@ function start() {
     fuda[1][i] = "";
   }
   if (document.getElementsByClassName("btn_radio")[4].checked) {
+    console.log(1);
     max = 0;
     if (document.getElementsByClassName("btn_check")[0].checked) {
       for (let i = 1; i <= 7; i++) {
@@ -252,7 +253,10 @@ function start() {
     fuda[1][max + 1] = fuda_org[1][101];
   } else {
     max = 100;
-    fuda = fuda_org;
+    for(let i = 0; i<=101;i++){
+      fuda[0][i] = fuda_org[0][i];
+      fuda[1][i] = fuda_org[1][i];
+    }
   }
   const randnum = [];
   for (let i = 1; i <= max; i++) {
