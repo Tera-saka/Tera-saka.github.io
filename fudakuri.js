@@ -318,8 +318,19 @@ function upsidedown(bool) {
   }
 }
 
+function soundon(){
+  document.getElementById("sound").play();
+}
+
+function soundoff(){
+  document.getElementById("sound").pause();
+  document.getElementById("sound").currentTime = 0;
+}
+
 function before() {
   if (counter > 1) {
+    soundoff();
+    soundon();
     counter--;
     document.getElementById("fuda").src = `${fuda[0][counter]}`;
     upsidedown(fuda[1][counter]);
@@ -333,6 +344,8 @@ function before() {
 }
 
 function after() {
+  soundoff();
+  soundon();
   if (counter >= max) {
     const finishTime = new Date();
     const totalTime = finishTime.getTime() - startTime.getTime();
