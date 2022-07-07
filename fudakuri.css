@@ -14,7 +14,7 @@ html {
 
 
 body {
-  background-color: rgb(255, 242, 204);
+  background-color: rgb(210, 240, 160);
   color: #000;
   font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
 }
@@ -64,6 +64,10 @@ input.btn_setting {
   letter-spacing: 0.0em;
 }
 
+input.btn_setting[disabled] {
+  pointer-events: none;
+}
+
 input.btn_setting:hover {
   color: rgb(255, 255, 255);
   background: rgb(204, 153, 0);
@@ -106,6 +110,10 @@ input.btn_start {
   letter-spacing: 0.0em;
 }
 
+input.btn_start[disabled] {
+  pointer-events: none;
+}
+
 input.btn_start:hover {
   color: #fff;
   background: blue;
@@ -117,8 +125,8 @@ input.btn_start:hover {
 
 input.btn_stop {
   font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
-  color: #fff;
-  background-color: red;
+  color: rgb(100, 100, 100);
+  background-color: rgb(156, 100, 100);
   border-color: red;
   border-width: 0ch;
   border-radius: 50%;
@@ -149,7 +157,12 @@ input.btn_stop {
   letter-spacing: 0.0em;
 }
 
+input.btn_stop[disabled] {
+  pointer-events: none;
+}
+
 input.btn_stop:hover {
+  
   color: #fff;
   background: red;
   -webkit-transform: translate(0, 3px);
@@ -381,6 +394,14 @@ input.btn_after {
   vertical-align: middle;
   text-decoration: none;
   letter-spacing: 0.0em;
+}
+
+input.btn_before[disabled] {
+  pointer-events: none;
+}
+
+input.btn_after[disabled] {
+  pointer-events: none;
 }
 
 input.btn_before:hover,
