@@ -114,6 +114,7 @@ const maisuu = [7, 10, 12, 16, 5, 12, 14, 8, 16];
 let max = 0;
 let counter = 0;
 let startTime = 0;
+let change;
 let fuda = [[], []];
 fuda[0][0] = fuda_org[0][0];
 fuda[1][0] = fuda_org[1][0];
@@ -253,7 +254,7 @@ function start() {
     fuda[1][max + 1] = fuda_org[1][101];
   } else {
     max = 100;
-    for(let i = 0; i<=101;i++){
+    for (let i = 0; i <= 101; i++) {
       fuda[0][i] = fuda_org[0][i];
       fuda[1][i] = fuda_org[1][i];
     }
@@ -290,8 +291,17 @@ function start() {
   document.getElementById("fuda").src = `${fuda[0][1]}`;
   upsidedown(fuda[1][1]);
   document.getElementById("setting_btn").disabled = true;
+  change = document.getElementsByClassName("btn_setting")[0];
+  change.style.color = "rgb(80, 80, 80)";
+  change.style.backgroundColor = "rgb(124, 110, 80)";
   document.getElementById("start_btn").disabled = true;
+  change = document.getElementsByClassName("btn_start")[0];
+  change.style.color = "rgb(80, 80, 80)";
+  change.style.backgroundColor = "rgb(100, 100, 156)";
   document.getElementById("stop_btn").disabled = false;
+  change = document.getElementsByClassName("btn_stop")[0];
+  change.style.color = "rgb(256, 256, 256)";
+  change.style.backgroundColor = "rgb(256, 0, 0)";
   document.getElementById("before_btn").disabled = false;
   document.getElementById("after_btn").disabled = false;
   counter = 1;
@@ -305,8 +315,17 @@ function stop() {
   document.getElementById("fuda").src = `${fuda[0][0]}`;
   upsidedown(fuda[1][0]);
   document.getElementById("setting_btn").disabled = false;
+  change = document.getElementsByClassName("btn_setting")[0];
+  change.style.color = "rgb(256, 256, 256)";
+  change.style.backgroundColor = "rgb(204, 153, 0)";
   document.getElementById("start_btn").disabled = false;
+  change = document.getElementsByClassName("btn_start")[0];
+  change.style.color = "rgb(256, 256, 256)";
+  change.style.backgroundColor = "rgb(0, 0, 256)";
   document.getElementById("stop_btn").disabled = true;
+  change = document.getElementsByClassName("btn_stop")[0];
+  change.style.color = "rgb(100, 100, 100)";
+  change.style.backgroundColor = "rgb(156, 100, 100)";
   document.getElementById("before_btn").disabled = true;
   document.getElementById("after_btn").disabled = true;
   counter = 0;
@@ -322,11 +341,11 @@ function upsidedown(bool) {
   }
 }
 
-function soundon(){
+function soundon() {
   document.getElementById("sound").play();
 }
 
-function soundoff(){
+function soundoff() {
   document.getElementById("sound").pause();
   document.getElementById("sound").currentTime = 0;
 }
@@ -358,8 +377,17 @@ function after() {
     document.getElementById("fuda").src = `${fuda[0][counter]}`;
     upsidedown(fuda[1][counter]);
     document.getElementById("setting_btn").disabled = false;
+    change = document.getElementsByClassName("btn_setting")[0];
+    change.style.color = "rgb(256, 256, 256)";
+    change.style.backgroundColor = "rgb(204, 153, 0)";
     document.getElementById("start_btn").disabled = false;
+    change = document.getElementsByClassName("btn_start")[0];
+    change.style.color = "rgb(256, 256, 256)";
+    change.style.backgroundColor = "rgb(0, 0, 256)";
     document.getElementById("stop_btn").disabled = true;
+    change = document.getElementsByClassName("btn_stop")[0];
+    change.style.color = "rgb(100, 100, 100)";
+    change.style.backgroundColor = "rgb(156, 100, 100)";
     document.getElementById("before_btn").disabled = true;
     document.getElementById("after_btn").disabled = true;
     counter = 0;
