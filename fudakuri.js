@@ -434,5 +434,5 @@ const fileopenButton = document.getElementById("fileopen_btn");
 fileopenButton.addEventListener('click', openpdf);
 
 function openpdf() {
-  window.open("プレゼン資料.pdf")
+  window.open("howtouse.pdf")
 }
