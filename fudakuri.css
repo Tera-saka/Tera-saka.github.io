@@ -143,10 +143,9 @@ input.btn_stop {
   user-select: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  text-align: center;
+  text-align: justify;
   vertical-align: middle;
   text-decoration: none;
-  letter-spacing: 0.0em;
 }
 
 input.btn_stop[disabled] {
@@ -189,10 +188,9 @@ input.btn_fileopen {
   user-select: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  text-align: center;
+  text-align: justify;
   vertical-align: middle;
   text-decoration: none;
-  letter-spacing: 0.0em;
 }
 
 input.btn_fileopen:hover {
@@ -380,10 +378,9 @@ input.btn_after {
   user-select: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  text-align: center;
+  text-align: justify;
   vertical-align: middle;
   text-decoration: none;
-  letter-spacing: 0.0em;
 }
 
 input.btn_before[disabled] {
