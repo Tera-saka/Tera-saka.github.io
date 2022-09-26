@@ -121,6 +121,8 @@ fuda[1][0] = fuda_org[1][0];
 let lastcheck = 0;
 let islastcheck = false;
 
+const memberList = ["春日井 仁海", "杉藤 瑞紀", "早井 翠花", "籠谷 千絵", "杉田 結", "春日井 路明", "岡本 琴音", "磯野 花衣", "早井 寧花", "穴見 理世", "磯野 永康", "岡本 華音"];
+
 function change_counter(count) {
   document.getElementById("counter").textContent = `${count}/${max}`;
 }
@@ -185,7 +187,6 @@ function start() {
     fuda[1][i] = "";
   }
   if (document.getElementsByClassName("btn_radio")[4].checked) {
-    console.log(1);
     max = 0;
     if (document.getElementsByClassName("btn_check")[0].checked) {
       for (let i = 1; i <= 7; i++) {
@@ -402,6 +403,83 @@ function after() {
   }
 }
 
+function admin() {
+  document.getElementById("admin").style.display = "block";
+  for (let i = 0; i < memberList.length; i++) {
+    document.getElementsByClassName("member")[i].textContent = memberList[i];
+  }
+  const pw = "0523320376";
+  let password = window.prompt("パスワードを入力して下さい。", "");
+  while (password !== pw && password !== null) {
+    password = window.prompt("パスワードが間違っています。正しいパスワードを入力して下さい。", "");
+  }
+  if (password === pw) {
+    document.getElementById("admin").style.display = "block";
+  }
+}
+
+function batu() {
+  document.getElementById("admin").style.display = "none";
+}
+
+function kumi() {
+  const attend = [];
+  for (let i = 0; i < 12; i++) {
+    if (document.getElementsByClassName("attendance_check")[i].checked) {
+      attend.push(document.getElementsByClassName("member")[i].textContent);
+    }
+  }
+  let member = "";
+  let bool = true;
+  while (bool) {
+    bool = false;
+    const before = [];
+    const randnum = [];
+    for (let i = 0; i < attend.length; i++) {
+      randnum[i] = Math.random();
+    }
+    for (let i = 0; i < attend.length - 1; i++) {
+      for (let j = i; j < attend.length; j++) {
+        if (randnum[i] < randnum[j]) {
+          let num = randnum[i];
+          let str = attend[i];
+          randnum[i] = randnum[j];
+          randnum[j] = num;
+          attend[i] = attend[j];
+          attend[j] = str;
+        }
+      }
+    }
+    if (document.getElementById("member0").textContent !== "") {
+      for (let i = 0; i < attend.length; i++) {
+        member = "member" + i;
+        before[i] = document.getElementById(member).textContent;
+      }
+      for (let i = 0; i < attend.length; i += 2) {
+        if (before.indexOf(attend[i]) % 2 === 0) {
+          if (attend[i + 1] === before[i + 1]) {
+            bool = true;
+            i = attend.length;
+          }
+        } else {
+          if (attend[i + 1] === before[i - 1]) {
+            bool = true;
+            i = attend.length;
+          }
+        }
+      }
+    }
+  }
+  for (let i = 0; i < attend.length; i++) {
+    member = "member" + i;
+    document.getElementById(member).textContent = attend[i];
+  }
+  for (let i = attend.length; i < 12; i++) {
+    member = "member" + i;
+    document.getElementById(member).textContent = "";
+  }
+}
+
 const settingButton = document.getElementById("setting_btn");
 settingButton.addEventListener('click', setting);
 
@@ -436,3 +514,12 @@ fileopenButton.addEventListener('click', openpdf);
 function openpdf() {
   window.open("howtouse.pdf")
 }
+
+const adminButton = document.getElementById("admin_btn");
+adminButton.addEventListener('click', admin);
+
+const batuButton = document.getElementById("batu_btn");
+batuButton.addEventListener('click', batu);
+
+const kumiButton = document.getElementById("kumi_btn");
+kumiButton.addEventListener('click', kumi);
