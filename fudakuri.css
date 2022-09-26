@@ -25,6 +25,113 @@ body {
   text-align: center;
 }
 
+input.btn_admin {
+  position: absolute;
+  right: 0%;
+  font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
+  color: rgb(0, 0, 0);
+  background-color: rgb(217, 255, 0);
+
+  border-color: rgb(96, 155, 0);
+  border-width: 2px;
+  border-radius: 7px;
+  width: 80px;
+  height: 35px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 40px;
+  font-size: 11pt;
+  font-weight: normal;
+  display: inline-block;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+input.btn_batu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
+  color: rgb(0, 0, 0);
+  background-color: rgb(217, 255, 0);
+
+  border-color: rgb(96, 155, 0);
+  border-width: 2px;
+  border-radius: 2px;
+  width: 30px;
+  height: 30px;
+  font-size: 10pt;
+  font-weight: normal;
+  display: inline-block;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+input.btn_kumi {
+  font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
+  color: rgb(0, 0, 0);
+  background-color: rgb(0, 238, 255);
+
+  border-color: rgb(0, 132, 155);
+  border-width: 2px;
+  border-radius: 7px;
+  width: 150px;
+  height: 50px;
+  font-size: 16pt;
+  font-weight: normal;
+  display: inline-block;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+table.admin_title1 {
+  width: 90%;
+  margin-top: 2%;
+  margin-left: 2.5%;
+  margin-right: 7.5%;
+  font-size: 12pt;
+  text-align: left;
+}
+
+table.admin_title2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td.admin_title3 {
+  font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
+  font-size: 32pt;
+  text-align: right;
+  height: 80px;
+}
+
+td.admin_title4 {
+  font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
+  font-size: 32pt;
+  text-align: left;
+}
+
 input.btn_setting {
   position: absolute;
   left: 0%;
@@ -244,6 +351,22 @@ input.btn_fileopen:hover {
   border-radius: 20px;
   border-color: rgb(155, 88, 0);
   border: thick double rgb(155, 88, 0);
+}
+
+#admin {
+  /* visibility: hidden; */
+  display: none;
+  z-index: 6;
+  position: absolute;
+  left: 2.5%;
+  top: 70px;
+  height: 720px;
+  width: 95%;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 20px;
+  border-color: rgb(26, 110, 0);
+  border: thick double rgb(26, 110, 0);
 }
 
 p.set_title0 {
