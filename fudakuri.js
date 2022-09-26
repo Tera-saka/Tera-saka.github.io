@@ -404,7 +404,6 @@ function after() {
 }
 
 function admin() {
-  document.getElementById("admin").style.display = "block";
   for (let i = 0; i < memberList.length; i++) {
     document.getElementsByClassName("member")[i].textContent = memberList[i];
   }
