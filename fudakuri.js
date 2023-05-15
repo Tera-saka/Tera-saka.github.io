@@ -121,7 +121,7 @@ fuda[1][0] = fuda_org[1][0];
 let lastcheck = 0;
 let islastcheck = false;
 
-const memberList = ["春日井 仁海", "杉藤 瑞紀", "早井 翠花", "籠谷 千絵", "杉田 結", "春日井 路明", "岡本 琴音", "磯野 花衣", "早井 寧花", "穴見 理世", "磯野 永康", "岡本 華音"];
+const memberList = ["早井 翠花", "籠谷 千絵", "鵜野 七緒", "荒城 梨奈", "杉田 結", "磯野 花衣", "早井 寧花", "穴見 理世", "磯野 永康", "岡本 華音", "鵜野 耀大", "遠山 一花"];
 
 function change_counter(count) {
   document.getElementById("counter").textContent = `${count}/${max}`;
