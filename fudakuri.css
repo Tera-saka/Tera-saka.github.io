@@ -110,7 +110,8 @@ table.admin_title1 {
   margin-top: 2%;
   margin-left: 2.5%;
   margin-right: 7.5%;
-  font-size: 12pt;
+  line-height: 200%;
+  font-size: 16pt;
   text-align: left;
 }
 
