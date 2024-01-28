@@ -474,7 +474,7 @@ function kumi() {
     member = "member" + i;
     document.getElementById(member).textContent = attend[i];
   }
-  for (let i = attend.length; i < 12; i++) {
+  for (let i = attend.length; i < memberList.length; i++) {
     member = "member" + i;
     document.getElementById(member).textContent = "";
   }
