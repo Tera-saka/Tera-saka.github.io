@@ -65,13 +65,13 @@ input.btn_batu {
   border-color: rgb(96, 155, 0);
   border-width: 2px;
   border-radius: 2px;
-  width: 40px;
-  height: 40px;
-  font-size: 12pt;
+  width: 48px;
+  height: 48px;
+  font-size: 24pt;
   font-weight: normal;
   display: inline-block;
   padding-left: auto;
-  padding-right: 20px;
+  padding-right: 10px;
 
   cursor: pointer;
   -webkit-user-select: none;
@@ -112,7 +112,7 @@ table.admin_title1 {
   margin-top: 2%;
   margin-left: 2.5%;
   margin-right: 7.5%;
-  line-height: 200%;
+  line-height: 150%;
   font-size: 24pt;
   text-align: left;
 }
@@ -126,7 +126,7 @@ td.admin_title3 {
   font-family: "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
   font-size: 32pt;
   text-align: right;
-  height: 80px;
+  height: 68px;
 }
 
 td.admin_title4 {
@@ -363,7 +363,7 @@ input.btn_fileopen:hover {
   position: absolute;
   left: 2.5%;
   top: 70px;
-  height: 860px;
+  height: 93%;
   width: 95%;
   background-color: rgb(255, 255, 255);
   text-align: center;
@@ -528,4 +528,9 @@ input.btn_after:hover {
 #time {
   text-align: center;
   font-size: 16pt;
+}
+
+.attendance_check {
+  height: 24px;
+  width: 24px;
 }
